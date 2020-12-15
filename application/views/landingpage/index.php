@@ -185,7 +185,7 @@
             <div class="copyright-footer">
                 <div class="pt-3 pb-3">
                     <div class="row flex-row-reverse justify-content-between">
-                        <div class="col-lg-12 col-md-12 text-lg-center text-md-center text-center"> <span class="copyright">Copyright 2020 <a href="index.html">ProX</a> All Rights Reserved.</span>
+                        <div class="col-lg-12 col-md-12 text-lg-center text-md-center text-center"> <span class="copyright"><a href="<?= base_url(); ?>">©</a> Institut Teknologi Harapan Bangsa.</span>
                         </div>
                     </div>
                 </div>
