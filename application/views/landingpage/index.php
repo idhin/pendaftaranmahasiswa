@@ -71,7 +71,7 @@
                                         <a class="nav-link" href="#">Akademik</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="<?= base_url(); ?>Home/pendaftaran">Pendaftaran</a>
+                                        <a class="nav-link" href="<?= base_url(); ?>home/pendaftaran">Pendaftaran</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Kehidupan Kampus</a>
@@ -114,7 +114,7 @@
                             <h1 class="wow fadeIn text-dark">Dibuka</h1>
                             <p class="iq-pt-15 iq-mb-40 wow fadeIn">Silahkan melakukan pendaftaran dengan mengklik tombol dibawah</span></p>
                             <div class="btn-container mt-4 wow fadeIn">
-                                <a class="landing-button btn-primary" href="<?= base_url(); ?>/Home/daftar">Klik Disini Untuk Mendaftar<em></em></a>
+                                <a class="landing-button btn-primary" href="<?= base_url(); ?>home/pendaftaran">Klik Disini Untuk Mendaftar<em></em></a>
                             </div>
                         </div>
                     </div>
