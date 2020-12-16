@@ -36,4 +36,41 @@ class Daerah_model extends CI_Model
         $query = $this->db->query($sql);
         return $query->result();
     }
+
+
+    public function getProvinsi($kodeProp)
+    {
+        $this->db->select('nama');
+        $this->db->where('id_prov', $kodeProp);
+        $this->db->from('provinsi');
+
+        return $this->db->get()->row();
+    }
+
+    public function getKota($kodeKota)
+    {
+        $this->db->select('nama');
+        $this->db->where('id_kab', $kodeKota);
+        $this->db->from('kabupaten');
+
+        return $this->db->get()->row();
+    }
+
+    public function getKecamatan($kodeKecamatan)
+    {
+        $this->db->select('nama');
+        $this->db->where('id_kec', $kodeKecamatan);
+        $this->db->from('kecamatan');
+
+        return $this->db->get()->row();
+    }
+
+    public function getKelurahan($kodeKelurahan)
+    {
+        $this->db->select('nama');
+        $this->db->where('id_kel', $kodeKelurahan);
+        $this->db->from('kelurahan');
+
+        return $this->db->get()->row();
+    }
 }

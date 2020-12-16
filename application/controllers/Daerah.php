@@ -11,6 +11,7 @@ class Daerah extends CI_Controller
         $this->load->database();
     }
 
+
     public function index()
     {
         $data['provinsi'] = $this->daerah->getProv();

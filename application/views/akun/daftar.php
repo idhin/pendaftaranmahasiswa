@@ -47,117 +47,129 @@
                             </div>
                             <div class="col-lg-6">
                                 <h2 class="mb-2">Formulir Pendaftaran Online</h2>
+                                <?php
+                                $err = validation_errors();
+                                if (isset($err) && !empty($err)) :
+                                    echo '<script> alert("' . str_replace(array("\r", "\n"), '\n', $err) . '"); </script>';
+                                endif;
+                                ?>
                                 <p>Silahkan masukkan informasi anda dengan benar.</p>
-                                <form>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="floating-label form-group">
-                                                <input class="floating-input form-control" name="nama" type="text" placeholder=" ">
-                                                <label>Nama lengkap</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="floating-label form-group">
-                                                <input class="floating-input form-control" name="email" type="email" placeholder=" ">
-                                                <label>Email</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="floating-label form-group">
-                                                <input class="floating-input form-control" name="password" type="password" placeholder=" ">
-                                                <label>Password</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="floating-label form-group">
-                                                <input class="floating-input form-control" name="password2" type="password" placeholder=" ">
-                                                <label>Konfirmasi Password</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="floating-label form-group">
-                                                <input class="floating-input form-control" name="tempat" type="text" placeholder=" ">
-                                                <label>Tempat Lahir</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="floating-label form-group">
-                                                <input class="floating-input form-control" name="tglLahir" type="date" placeholder=" ">
-                                                <label>Tanggal Lahir</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <div class="floating-label form-group">
-                                                <input class="floating-input form-control" name="alamat" type="text" placeholder=" ">
-                                                <label>Alamat</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <div class="floating-label form-group">
-
-                                                <select name="prop" class="custom-select" id="prop" onchange="ajaxkota(this.value)">
-                                                    <option value="">Pilih Provinsi</option>
-                                                    <?php
-                                                    foreach ($provinsi as $data) {
-                                                        echo '<option value="' . $data->id_prov . '">' . $data->nama . '</option>';
-                                                    }
-                                                    ?>
-                                                    <select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <div class="floating-label form-group">
-                                                <td>
-                                                    <select name="kota" class="custom-select" id="kota" onchange="ajaxkec(this.value)">
-                                                        <option value="">Pilih Kota</option>
-                                                    </select>
-                                                </td>
-                                                </tr>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <div class="floating-label form-group">
-                                                <tr id='kec_box'>
-                                                    <td>
-                                                        <select name="kec" id="kec" class="custom-select" onchange="ajaxkel(this.value)">
-                                                            <option value="">Pilih Kecamatan</option>
-                                                        </select>
-                                                    </td>
-                                                </tr>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <div class="floating-label form-group">
-                                                <tr id='kel_box'>
-                                                    <td>
-                                                        <select name="kel" class="custom-select" id="kel">
-                                                            <option value="">Pilih Kelurahan/Desa</option>
-                                                        </select>
-                                                    </td>
-                                                </tr>
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="col-lg-12">
-                                            <div class="custom-control custom-checkbox mb-3">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                <label class="custom-control-label" for="customCheck1">Saya menjamin bahwa data tersebut telah benar</label>
-                                            </div>
+                                <?= form_open('home/prosesDaftar'); ?>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="floating-label form-group">
+                                            <input class="floating-input form-control" name="nama" type="text" placeholder=" ">
+                                            <label>Nama lengkap</label>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Daftar</button>
-                                    <p class="mt-3">
-                                        Sudah punya akun? <a href="auth-sign-in.html" class="text-primary">Silahkan Masuk</a>
-                                    </p>
-                                </form>
+                                    <div class="col-lg-6">
+                                        <div class="floating-label form-group">
+                                            <input class="floating-input form-control" name="email" type="email" placeholder=" ">
+                                            <label>Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="floating-label form-group">
+                                            <input class="floating-input form-control" name="password" type="password" placeholder=" ">
+                                            <label>Password</label>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-lg-6">
+                                        <div class="floating-label form-group">
+                                            <input class="floating-input form-control" name="password2" type="password" placeholder=" ">
+                                            <label>Konfirmasi Password</label>
+                                        </div>
+                                    </div> -->
+                                    <div class="col-lg-6">
+                                        <div class="floating-label form-group">
+                                            <input class="floating-input form-control" name="tempat" type="text" placeholder=" ">
+                                            <label>Tempat Lahir</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="floating-label form-group">
+                                            <input class="floating-input form-control" name="tglLahir" type="date" placeholder=" ">
+                                            <label>Tanggal Lahir</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="floating-label form-group">
+                                            <input class="floating-input form-control" name="asalSekolah" type="text" placeholder=" ">
+                                            <label>Asal Sekolah</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="floating-label form-group">
+                                            <input class="floating-input form-control" name="alamat" type="text" placeholder=" ">
+                                            <label>Alamat</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="floating-label form-group">
+                                            <select name="prop" class="custom-select" id="prop" onchange="ajaxkota(this.value)">
+                                                <option value="">Pilih Provinsi</option>
+                                                <?php
+                                                foreach ($provinsi as $data) {
+                                                    echo '<option value="' . $data->id_prov . '">' . $data->nama . '</option>';
+                                                }
+                                                ?>
+                                                <select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="floating-label form-group">
+                                            <td>
+                                                <select name="kota" class="custom-select" id="kota" onchange="ajaxkec(this.value)">
+                                                    <option value="">Pilih Kota</option>
+                                                </select>
+                                            </td>
+                                            </tr>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="floating-label form-group">
+                                            <tr id='kec_box'>
+                                                <td>
+                                                    <select name="kec" id="kec" class="custom-select" onchange="ajaxkel(this.value)">
+                                                        <option value="">Pilih Kecamatan</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="floating-label form-group">
+                                            <tr id='kel_box'>
+                                                <td>
+                                                    <select name="kel" class="custom-select" id="kel">
+                                                        <option value="">Pilih Kelurahan/Desa</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-lg-12">
+                                        <div class="custom-control custom-checkbox mb-3">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                            <label class="custom-control-label" for="customCheck1">Saya menjamin bahwa data tersebut telah benar</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Daftar</button>
+                                <p class="mt-3">
+                                    Sudah punya akun? <a href="#" class="text-primary">Silahkan Masuk</a>
+                                </p>
+                                <?= form_close(); ?>
                             </div>
                         </div>
                     </div>
